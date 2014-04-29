@@ -1,0 +1,31 @@
+<style type="text/css">
+
+</style>
+
+<div class="AddModal">
+	<div class="modal-header">
+		<h3 translate>Add a stream source</h3>
+	</div>
+	<div class="modal-body">
+		<table>
+			<tbody>
+				<tr>
+					<th><span translate>Name</span>:</th>
+					<td><input ng-model="result.name"/></td>
+				</tr>
+				<tr>
+					<th><span translate>URL</span>:</th>
+					<td><input ng-model="result.url"/></td>
+				</tr>
+				<tr>
+					<th><span translate>Embed URL</span>:</th>
+					<td><input ng-model="result.embed"/></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" ng-click="ok()" translate>OK</button>
+		<button class="btn btn-warning" ng-click="cancel()" translate>Cancel</button>
+	</div>
+</div>
