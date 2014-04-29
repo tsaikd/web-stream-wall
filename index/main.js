@@ -48,7 +48,7 @@ app
 		}
 	];
 
-	$scope.autoplay = (localStorageService.get("autoplay") === "true") || true;
+	$scope.autoplay = (localStorageService.get("autoplay") === "false") ? false : true;
 
 	StreamService.$bind($scope, "streams");
 
@@ -66,6 +66,20 @@ app
 
 	$scope.toggleStream = function(stream) {
 		stream.disable = !stream.disable;
+	};
+
+	$scope.move = function(idxa, idxb) {
+		var idxlist = $scope.streams.$getIndex();
+		var stream = $scope.streams[idxlist[idxa]];
+		var tmp = $scope.streams[idxlist[idxb]];
+		var pre = $scope.streams[idxlist[idxb]] = {};
+		for (var i in stream) {
+			pre[i] = stream[i];
+		}
+		stream = $scope.streams[idxlist[idxa]] = {};
+		for (var i in tmp) {
+			stream[i] = tmp[i];
+		}
 	};
 
 	$scope.openAddModal = function() {

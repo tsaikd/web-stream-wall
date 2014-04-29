@@ -46,6 +46,8 @@
 				</div>
 				<iframe ng-src="{{getUrl(stream)}}" scrolling="no" frameborder="0" class="video" style="border: 0px none transparent;"></iframe>
 				<div ng-show="manager" style="position: absolute; top: 0px; right: 3px;">
+					<button ng-show="!$first" ng-click="move($index, $index-1)" class="btn btn-info btn-xs glyphicon glyphicon-arrow-left"></button>
+					<button ng-show="!$last" ng-click="move($index, $index+1)" class="btn btn-info btn-xs glyphicon glyphicon-arrow-right"></button>
 					<button ng-click="toggleStream(stream)" ng-class="{'glyphicon-plus': stream.disable, 'glyphicon-remove': !stream.disable}" class="btn btn-warning btn-xs glyphicon"></button>
 				</div>
 			</div>
