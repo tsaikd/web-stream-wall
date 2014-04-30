@@ -53,12 +53,12 @@ app
 	StreamService.$bind($scope, "streams");
 
 	$scope.getUrl = function(stream) {
-		if (stream.embed && !stream.disable) {
-			stream.embed = $sce.trustAsResourceUrl(stream.embed).toString();
-			if ($scope.autoplay) {
-				return $sce.trustAsResourceUrl(stream.embed + "?autoplay=true");
-			} else {
-				return $sce.trustAsResourceUrl(stream.embed + "?autoplay=false");
+		if (stream.embed) {
+			if ($scope.manager) {
+				return $sce.trustAsResourceUrl(stream.embed);
+			}
+			if (!stream.disable) {
+				return $sce.trustAsResourceUrl(stream.embed + "?autoplay=" + ($scope.autoplay ? "true" : "false"));
 			}
 		}
 		return "empty.html";
@@ -92,6 +92,20 @@ app
 				$scope.streams.$add(data);
 			});
 	};
+
+	$(document)
+	.on("keydown", function(e) {
+		$scope.$apply(function() {
+			if (e.ctrlKey && !$scope.manager) {
+				$scope.magicurl = location.href + "?manager";
+			}
+		});
+	})
+	.on("keyup", function(e) {
+		$scope.$apply(function() {
+			$scope.magicurl = "";
+		});
+	});
 
 	$scope.$watch("autoplay", function() {
 		localStorageService.set("autoplay", $scope.autoplay);

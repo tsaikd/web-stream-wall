@@ -69,6 +69,10 @@ html, body {
 	display: inline-block;
 }
 
+a:hover {
+	text-decoration: initial;
+}
+
 .stream-block {
 	width: 320px;
 	height: 260px;

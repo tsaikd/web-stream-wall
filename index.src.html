@@ -29,17 +29,16 @@
 	</head>
 	<body ng-controller="IndexCtrl" style="padding: 10px;">
 		<div>
-			<div>
-				<label>
-					<span translate>Autoplay</span>
-					<input ng-model="autoplay" type="checkbox"/>
-				</label>
-				<button ng-click="openAddModal()" ng-show="manager" class="btn btn-primary btn-xs" translate>Add</button>
-			</div>
+			<label>
+				<span translate>Autoplay</span>
+				<input ng-model="autoplay" type="checkbox"/>
+			</label>
+			<button ng-click="openAddModal()" ng-show="manager" class="btn btn-primary btn-xs" translate>Add</button>
+			<a href="{{magicurl}}" target="_blank" style="cursor: default; width: 10em; display: inline-block; float: right;">&nbsp;</a>
 		</div>
 		<div style="text-align: center;">
 			<div ng-repeat="stream in streams" class="stream-block">
-				<div ng-show="stream.disable" class="video" style="position: absolute;">
+				<div ng-show="stream.disable && !manager" class="video" style="position: absolute;">
 					<a href="{{stream.url || stream.embed}}" target="_blank" class="vertical-middle" style="height: 100%; font-size: 2.5em; cursor: pointer;">
 						<span tooltip="{{stream.name}}">{{stream.name}}</span>
 					</a>
