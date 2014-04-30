@@ -1,5 +1,17 @@
 <style type="text/css">
 
+.AddModal .modal-body table,
+.AddModal .modal-body table input {
+	width: 100%;
+}
+
+.AddModal .modal-body table th {
+	text-align: right;
+	padding-right: 0.5em;
+	width: 1em;
+	white-space: nowrap;
+}
+
 </style>
 
 <div class="AddModal">
@@ -11,15 +23,15 @@
 			<tbody>
 				<tr>
 					<th><span translate>Name</span>:</th>
-					<td><input ng-model="result.name"/></td>
+					<td><input ng-model="result.name" placeholder="longson3000"/></td>
 				</tr>
 				<tr>
 					<th><span translate>URL</span>:</th>
-					<td><input ng-model="result.url"/></td>
+					<td><input ng-model="result.url" placeholder="http://www.ustream.tv/channel/longson3000"/></td>
 				</tr>
 				<tr>
 					<th><span translate>Embed URL</span>:</th>
-					<td><input ng-model="result.embed"/></td>
+					<td><input ng-model="result.embed" placeholder="http://www.ustream.tv/embed/17513092"/></td>
 				</tr>
 			</tbody>
 		</table>
