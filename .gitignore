@@ -5,7 +5,3 @@
 /lib/bootstrap/*
 !/lib/bootstrap/dist/
 *.swp
-/index/angular-template.tmp.js
-/index/*.min.css
-/index/*.min.js
-/index.html
